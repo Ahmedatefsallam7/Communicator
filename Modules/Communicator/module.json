@@ -1,0 +1,11 @@
+{
+    "name": "Communicator",
+    "alias": "communicator",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Communicator\\App\\Providers\\CommunicatorServiceProvider"
+    ],
+    "files": []
+}
