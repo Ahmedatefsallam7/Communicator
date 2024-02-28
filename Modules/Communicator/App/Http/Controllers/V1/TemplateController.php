@@ -2,34 +2,40 @@
 
 namespace Modules\Communicator\App\Http\Controllers\V1;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Communicator\App\Models\Template;
+use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
+use Modules\Communicator\App\Http\Controllers\Actions\Templates\SearchTemplateQueryAction;
 
 class TemplateController extends Controller
 {
-
-    public function index()
+    function __construct(private SearchTemplateQueryAction $searchTemplateQueryAction)
     {
-        $templates = Template::get();
-
-        if ($templates->count()) {
-            // Response
-            return $this->successResponse(__('main.records_has_been_retrieved_successfully'), $templates);
-        }
-        return $this->notFoundResponse();
+        $this->searchTemplateQueryAction = $searchTemplateQueryAction;
     }
 
+    public function index(Request $request)
+    {
+        // Search
+        $templates = $this->searchTemplateQueryAction->execute($request)->with('creator');
+
+        // Response
+        $data = DataTables::of($templates)->with('creator')
+            ->addColumn('created_at', function ($template) {
+                return $template->created_at->format('M j, Y | h:i A');
+            })
+            ->make(true)->original;
+
+        return $this->successResponse(null, $data);
+    }
 
     public function store(Request $request)
     {
     }
 
-
     public function show($id)
     {
     }
-
 
     public function update(Request $request, $id)
     {

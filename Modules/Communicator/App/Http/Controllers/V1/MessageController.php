@@ -2,39 +2,44 @@
 
 namespace Modules\Communicator\App\Http\Controllers\V1;
 
-use App\Models\User;
+use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
-use Modules\Communicator\App\Models\Message;
-use Modules\Communicator\App\Emails\UserMail;
-use Modules\Communicator\App\resources\MessageResource;
 use Modules\Communicator\App\Http\Requests\StoreMessageRequest;
 use Modules\Communicator\App\Http\Requests\UpdateMessageRequest;
-use Modules\Communicator\App\Http\Controllers\Actions\StoreMessageAction;
-use Modules\Communicator\App\Http\Controllers\Actions\UpdateMessageAction;
+use Modules\Communicator\App\Http\Controllers\Actions\Messages\StoreMessageAction;
+use Modules\Communicator\App\Http\Controllers\Actions\Messages\UpdateMessageAction;
+use Modules\Communicator\App\Http\Controllers\Actions\Messages\SearchMessageQueryAction;
 
 class MessageController extends Controller
 {
     function __construct(
+        private SearchMessageQueryAction $searchMessageQueryAction,
         private StoreMessageAction $storeMessageAction,
         private UpdateMessageAction $updateMessageAction,
     ) {
+        $this->searchMessageQueryAction = $searchMessageQueryAction;
+        $this->storeMessageAction = $storeMessageAction;
         $this->updateMessageAction = $updateMessageAction;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // all messages
-        $messages = MessageResource::collection(Message::latest()->get());
-        if ($messages->count()) {
-            // Response
-            return $this->successResponse(__('main.records_has_been_retrieved_successfully'), $messages);
-        }
-        return $this->notFoundResponse();
+        // Search
+        $messages = $this->searchMessageQueryAction->execute($request)->with('creator');
+
+        // Response
+        $data = DataTables::of($messages)->with('creator')
+            ->addColumn('created_at', function ($message) {
+                return $message->created_at->format('M j, Y | h:i A');
+            })
+            ->make(true)->original;
+
+        return $this->successResponse(null, $data);
     }
 
     public function store(StoreMessageRequest $request)
     {
-
         // Data Setup
         $data = $this->unsetNullValues($request->all());
 

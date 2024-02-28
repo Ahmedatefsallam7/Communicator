@@ -1,12 +1,11 @@
 <x-mail::message>
-    # Introduction
 
-    Hello Form Communicator App
+    # Welcome, {{ $message->user->name }}
 
-    <x-mail::button :url="''">
-        Button Text
-    </x-mail::button>
+    {{ json_decode($message->message_data,true)['en'] }}
 
-    Thanks,<br>
-    {{ config('app.name') }}
+    ## {!! $bodyText !!}
+
+
+    Thanks from communicator team
 </x-mail::message>

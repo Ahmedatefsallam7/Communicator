@@ -13,18 +13,27 @@ return new class extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
+            $table->string('name')->unique();
             $table->enum('type', ['email', 'sms']);
-            $table->json('path')->nullable();
-            $table->json('body')->nullable();
-            $table->json('subject')->nullable();
-            $table->string('sender');
-            $table->json('variable');
+            $table->string('subject');
+            $table->text('body_text')->nullable();
             $table->string('attachment')->nullable();
-            $table->json('cc')->nullable();
-            $table->json('bcc')->nullable();
+            $table->string('path')->nullable();
+            $table->json('variables')->nullable();
+            $table->string('cc')->nullable();
+            $table->string('bcc')->nullable();
             $table->softDeletes();
             $table->timestamps();
+        });
+
+        // Add UserStamps
+        Schema::table('templates', function (Blueprint $table) {
+            $table->bigInteger('created_by')->unsigned()->nullable()->index()->after('created_at');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->bigInteger('updated_by')->unsigned()->nullable()->index()->after('updated_at');
+            $table->foreign('updated_by')->references('id')->on('users');
+            $table->bigInteger('deleted_by')->unsigned()->nullable()->index()->after('deleted_at');
+            $table->foreign('deleted_by')->references('id')->on('users');
         });
     }
 

@@ -3,6 +3,8 @@
 namespace Modules\Communicator\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Modules\Communicator\App\Models\Template;
 
 class TemplateSeeder extends Seeder
@@ -12,53 +14,52 @@ class TemplateSeeder extends Seeder
      */
     public function run(): void
     {
-        $email_data = [
-            [
-                'name' => json_encode(['en' => 'welcome_email', 'ar' => 'إيميل ترحيب']),
-                'type' => 'email',
-                'path' => json_encode(base_path() . "\resources\\views\\emails"),
-                'body' => json_encode(['en' => 'Welcome email', 'ar' => 'إيميل ترحيب']),
-                'subject' => json_encode(['en' => 'Welcome email', 'ar' => 'إيميل ترحيب']),
-                'sender' => "Ahmed Atef",
-                'variable' => json_encode(['en' => ['name', 'email'], 'ar' => ['الاسم', 'إيميل']]),
-                'cc' => json_encode("ahmedatef@gmail.com"),
-                'bcc' => json_encode("ahmedatef@gmail.com"),
-            ], [
-                'name' => json_encode(['en' => 'reminder_email', 'ar' => 'إيميل تزكير']),
-                'type' => 'email',
-                'path' => json_encode(base_path() . "\resources\\views\\emails"),
-                'body' => json_encode(['en' => 'Reminder email', 'ar' => 'إيميل تزكير']),
-                'subject' => json_encode(['en' => 'Reminder email', 'ar' => 'إيميل تزكير']),
-                'sender' => "Ahmed Atef",
-                'variable' => json_encode(['en' => ['name', 'email'], 'ar' => ['الاسم', 'إيميل']]),
-                'cc' => json_encode("ahmedatef@gmail.com"),
-                'bcc' => json_encode("ahmedatef@gmail.com"),
-            ]
-        ];
+        $templates = json_decode(File::get('Modules\\Communicator\\resources\\views\\emails\\templates.json'), true);
 
+        foreach ($templates['templates'] as $template) {
+            DB::table('templates')->insert([
+                'name' => $template['name'],
+                'subject' => $template['subject'],
+                'path' => base_path() . "\resources\\views\\emails",
+                'body_text' => $template['body']['text'],
+                'variables' => json_encode($template['variables']),
+                'cc' => "ahmedatef@gmail.com",
+                'bcc' => "ahmedatef@gmail.com",
+                'created_at' => now()
+            ]);
+        }
 
-        $sms_data = [
+        $smsData = $this->getSmsData();
+
+        Template::query()->insert($smsData);
+    }
+    private function getSmsData(): array
+    {
+        return [
             [
-                'name' => json_encode(['en' => 'sms', 'ar' => 'رساله نصيه']),
+                'name' => json_encode(['en' => 'sms1', 'ar' => 'الرساله الاولي']),
                 'type' => 'sms',
-                'body' => json_encode(['en' => 'SMS', 'ar' => 'رساله نصيه']),
-                'subject' => json_encode(['en' => 'SMS', 'ar' => 'رساله نصيه']),
-                'sender' => "Ahmed Atef",
-                'variable' => json_encode(['en' => ['name'], 'ar' => ['الاسم']]),
+                'body_text' => json_encode(['en' => 'SMS1', 'ar' => 'الرساله الاولي']),
+                'subject' => json_encode(['en' => 'SMS1', 'ar' => 'الرساله الاولي']),
+                'variables' => json_encode(['en' => ['name'], 'ar' => ['الاسم']]),
+                'created_at' => now()
             ],
             [
-                'name' => json_encode(['en' => 'sms', 'ar' => 'رساله نصيه']),
+                'name' => json_encode(['en' => 'sms2', 'ar' => 'الرساله الثانيه']),
                 'type' => 'sms',
-                'body' => json_encode(['en' => 'SMS', 'ar' => 'رساله نصيه']),
-                'subject' => json_encode(['en' => 'SMS', 'ar' => 'رساله نصيه']),
-                'sender' => "Ahmed Atef",
-                'variable' => json_encode(['en' => ['name'], 'ar' => ['الاسم']]),
+                'body_text' => json_encode(['en' => 'SMS2', 'ar' => 'الرساله الثانيه']),
+                'subject' => json_encode(['en' => 'SMS2', 'ar' => 'الرساله الثانيه']),
+                'variables' => json_encode(['en' => ['name'], 'ar' => ['الاسم']]),
+                'created_at' => now()
             ],
-
+            [
+                'name' => json_encode(['en' => 'sms3', 'ar' => 'الرساله الثالثه']),
+                'type' => 'sms',
+                'body_text' => json_encode(['en' => 'SMS3', 'ar' => 'الرساله الثالثه']),
+                'subject' => json_encode(['en' => 'SMS3', 'ar' => 'الرساله الثالثه']),
+                'variables' => json_encode(['en' => ['name'], 'ar' => ['الاسم']]),
+                'created_at' => now()
+            ],
         ];
-
-
-        Template::query()->insert($email_data);
-        Template::query()->insert($sms_data);
     }
 }

@@ -7,25 +7,28 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UserMail extends Mailable
+class UserMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
-    {
-        //
-    }
+    public $message;
+    public $subject;
+    public $bodyText;
 
-    /**
-     * Build the message.
-     */
+    public function __construct($message, $subject, $bodyText)
+    {
+        $this->message = $message;
+        $this->subject = $subject;
+        $this->bodyText = $bodyText;
+    }
 
     public function build()
     {
         return $this->markdown('communicator::emails.user_mail')
-            ->subject('Welcome to My Module');
+            ->subject($this->subject)
+            ->with([
+                'message' => $this->message,
+                'bodyText' => $this->bodyText
+            ]);
     }
 }

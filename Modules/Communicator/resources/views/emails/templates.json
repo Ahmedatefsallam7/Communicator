@@ -1,0 +1,51 @@
+{
+    "templates": [
+        {
+            "name": "welcome_email",
+            "subject": "Welcome to Our Community!",
+            "body": {
+                "text": "Welcome to our community! We're excited to have you on board..."
+            },
+            "variables": {
+                "name": {
+                    "type": "string",
+                    "description": "Recipient's name"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "Recipient's name"
+                }
+            }
+        },
+        {
+            "name": "password_reset",
+            "subject": "Reset Your Password",
+            "body": {
+                "text": "You have requested a password reset for your account.\nClick the link below to reset your password:\n[reset_url]"
+            },
+            "variables": {
+                "name": {
+                    "type": "string",
+                    "description": "Recipient's name"
+                },
+                "reset_url": {
+                    "type": "string",
+                    "description": "Password reset URL"
+                }
+            }
+        },
+        {
+            "name": "order_confirmation",
+            "subject": "Your Order Confirmation",
+            "body": {
+                "text": "Thank you for your order! Your order details are below:\n...\n...\nSincerely,\nThe [Your Company Name] Team"
+            },
+            "variables": {
+                "name": {
+                    "type": "string",
+                    "description": "Recipient's name"
+                }
+            }
+        }
+    ]
+}

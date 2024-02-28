@@ -25,6 +25,16 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        // Add UserStamps
+        Schema::table('messages', function (Blueprint $table) {
+            $table->bigInteger('created_by')->unsigned()->nullable()->index()->after('created_at');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->bigInteger('updated_by')->unsigned()->nullable()->index()->after('updated_at');
+            $table->foreign('updated_by')->references('id')->on('users');
+            $table->bigInteger('deleted_by')->unsigned()->nullable()->index()->after('deleted_at');
+            $table->foreign('deleted_by')->references('id')->on('users');
+        });
     }
 
     /**

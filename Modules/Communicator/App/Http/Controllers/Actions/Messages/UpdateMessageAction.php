@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Communicator\App\Http\Controllers\Actions;
+namespace Modules\Communicator\App\Http\Controllers\Actions\Messages;
 
 use Modules\Communicator\App\Models\Message;
 use Modules\Communicator\App\resources\MessageResource;
