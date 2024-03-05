@@ -3,7 +3,6 @@
 namespace Modules\Communicator\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Modules\Communicator\App\Models\Template;
 
@@ -14,25 +13,48 @@ class TemplateSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->seedEmailTemplates();
+        $this->seedSmsTemplates();
+    }
+
+    /**
+     * Seed the database with email templates.
+     */
+    private function seedEmailTemplates(): void
+    {
         $templates = json_decode(File::get('Modules\\Communicator\\resources\\views\\emails\\templates.json'), true);
 
         foreach ($templates['templates'] as $template) {
-            DB::table('templates')->insert([
-                'name' => $template['name'],
-                'subject' => $template['subject'],
-                'path' => base_path() . "\resources\\views\\emails",
-                'body_text' => $template['body']['text'],
-                'variables' => json_encode($template['variables']),
-                'cc' => "ahmedatef@gmail.com",
-                'bcc' => "ahmedatef@gmail.com",
-                'created_at' => now()
+            Template::create([
+                'name' => json_encode(['en' => $template['name_en'], 'ar' => $template['name_ar']]),
+                'type' => 'email',
+                'subject' => json_encode(['en' => $template['subject']['en'], 'ar' => $template['subject']['ar']]),
+                'body_text' => json_encode(['en' => $template['body']['text']['en'], 'ar' => $template['body']['text']['ar']]),
+                'path' => $template['name_en'],
+                'variables' => json_encode([
+                    'en' => array_values(array_map(fn ($v) => $v['description']['en'], $template['variables'])),
+                    'ar' => array_values(array_map(fn ($v) => $v['description']['ar'], $template['variables'])),
+                    'url' => $template['variables']['url']['value'] ?? null
+                ]),
+                'cc' => "ahmedatefsallam7@gmail.com",
+                'bcc' => "ahmedatefsallam7@gmail.com",
             ]);
         }
+    }
 
+    /**
+     * Seed the database with SMS templates.
+     */
+    private function seedSmsTemplates(): void
+    {
         $smsData = $this->getSmsData();
 
         Template::query()->insert($smsData);
     }
+
+    /**
+     * Get data for SMS templates.
+     */
     private function getSmsData(): array
     {
         return [

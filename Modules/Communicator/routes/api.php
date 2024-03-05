@@ -7,5 +7,5 @@ use Modules\Communicator\App\Http\Controllers\V1\TemplateController;
 
 Route::prefix('v1')->group(function () {
     Route::resource('templates', TemplateController::class);
-    Route::resource('message', MessageController::class);
+    Route::resource('messages', MessageController::class);
 });

@@ -13,8 +13,8 @@ class MessageResource extends JsonResource
             'message_data' => $this->message_data,
             'status' => $this->status,
             'template_id' => $this->template_id,
-            'template' => $this->template,
             'user_id' => $this->user_id,
+            'template' => $this->template,
             'user' => $this->user,
         ];
     }

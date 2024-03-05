@@ -56,14 +56,11 @@ trait GeneralTrait
 
     public function sendEmail($message, $recipientEmail, $templateName)
     {
-        $template = Template::query()
+        Template::query()
             ->whereName($templateName)
             ->firstOrFail();
 
-        $subject = $template->subject;
-        $bodyText = $template->body_text;
-
-        Mail::to($recipientEmail)->send(new UserMail($message, $subject,  $bodyText));
+        Mail::to($recipientEmail)->send(new UserMail($message));
     }
 
     function sendSMS($sender, $recipient, $content)

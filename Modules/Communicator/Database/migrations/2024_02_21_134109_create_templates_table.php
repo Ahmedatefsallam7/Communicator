@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->json('name')->unique();
             $table->enum('type', ['email', 'sms']);
-            $table->string('subject');
-            $table->text('body_text')->nullable();
+            $table->json('subject');
+            $table->json('body_text')->nullable();
             $table->string('attachment')->nullable();
             $table->string('path')->nullable();
             $table->json('variables')->nullable();

@@ -1,49 +1,137 @@
 {
     "templates": [
         {
-            "name": "welcome_email",
-            "subject": "Welcome to Our Community!",
+            "name_en": "welcome_email",
+            "name_ar": "إميل ترحيب",
+            "subject": {
+                "en": "Welcome to Our Community!",
+                "ar": "مرحبًا بك في مجتمعنا!"
+            },
             "body": {
-                "text": "Welcome to our community! We're excited to have you on board..."
+                "text": {
+                    "en": "Welcome to our community! We're excited to have you on board...",
+                    "ar": "مرحبًا بك في مجتمعنا! نحن متحمسون لانضمامك إلينا..."
+                }
             },
             "variables": {
                 "name": {
                     "type": "string",
-                    "description": "Recipient's name"
+                    "description": {
+                        "en": "this name",
+                        "ar": "هذا الاسم"
+                    }
                 },
                 "subject": {
                     "type": "string",
-                    "description": "Recipient's name"
-                }
-            }
-        },
-        {
-            "name": "password_reset",
-            "subject": "Reset Your Password",
-            "body": {
-                "text": "You have requested a password reset for your account.\nClick the link below to reset your password:\n[reset_url]"
-            },
-            "variables": {
-                "name": {
-                    "type": "string",
-                    "description": "Recipient's name"
+                    "description": {
+                        "en": "this subject",
+                        "ar": "هذا الموضوع"
+                    }
                 },
-                "reset_url": {
+                "body": {
                     "type": "string",
-                    "description": "Password reset URL"
+                    "description": {
+                        "en": "this body",
+                        "ar": "هذا النص"
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": {
+                        "en": "this url",
+                        "ar": "هذا الرابط"
+                    },
+                    "value": "https://example.com"
                 }
             }
         },
         {
-            "name": "order_confirmation",
-            "subject": "Your Order Confirmation",
+            "name_en": "password_reset",
+            "name_ar": "تغير كلمه المرور",
+            "subject": {
+                "en": "Reset Your Password",
+                "ar": "إعادة تعيين كلمة المرور الخاصة بك"
+            },
             "body": {
-                "text": "Thank you for your order! Your order details are below:\n...\n...\nSincerely,\nThe [Your Company Name] Team"
+                "text": {
+                    "en": "You have requested a password reset for your account.\nClick the link below to reset your password:\n[reset_url]",
+                    "ar": "لقد طلبت إعادة تعيين كلمة المرور الخاصة بحسابك.\nانقر على الرابط أدناه لإعادة تعيين كلمة المرور الخاصة بك:\n[reset_url]"
+                }
             },
             "variables": {
                 "name": {
                     "type": "string",
-                    "description": "Recipient's name"
+                    "description": {
+                        "en": "this name",
+                        "ar": "هذا الاسم"
+                    }
+                },
+                "subject": {
+                    "type": "string",
+                    "description": {
+                        "en": "this subject",
+                        "ar": "هذا الموضوع"
+                    }
+                },
+                "body": {
+                    "type": "string",
+                    "description": {
+                        "en": "this body",
+                        "ar": "هذا النص"
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": {
+                        "en": "this url",
+                        "ar": "هذا الرابط"
+                    },
+                    "value": "https://example.com"
+                }
+            }
+        },
+        {
+            "name_en": "order_confirmation",
+            "name_ar": "تأكيد الطلب",
+            "subject": {
+                "en": "Your Order Confirmation",
+                "ar": "تأكيد طلبك"
+            },
+            "body": {
+                "text": {
+                    "en": "Thank you for your order! Your order details are below:\n...\n...\nSincerely,\nThe [Your Company Name] Team",
+                    "ar": "شكرًا لطلبك! تفاصيل طلبك أدناه:\n...\n...\nبصدق،\nفريق [اسم شركتك]"
+                }
+            },
+            "variables": {
+                "name": {
+                    "type": "string",
+                    "description": {
+                        "en": "this name",
+                        "ar": "هذا الاسم"
+                    }
+                },
+                "subject": {
+                    "type": "string",
+                    "description": {
+                        "en": "this subject",
+                        "ar": "هذا الموضوع"
+                    }
+                },
+                "body": {
+                    "type": "string",
+                    "description": {
+                        "en": "this body",
+                        "ar": "هذا النص"
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": {
+                        "en": "this url",
+                        "ar": "هذا الرابط"
+                    },
+                    "value": "https://example.com"
                 }
             }
         }

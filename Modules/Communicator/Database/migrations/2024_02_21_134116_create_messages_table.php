@@ -17,8 +17,8 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Template::class)->constrained('templates')->cascadeOnDelete();
-            $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
+            $table->foreignIdFor(Template::class)->constrained('templates');
+            $table->foreignIdFor(User::class)->constrained('users');
             $table->string('app')->unique();
             $table->json('message_data');
             $table->enum('status', ['sent', 'draft', 'failed', 'successful'])->default('draft');

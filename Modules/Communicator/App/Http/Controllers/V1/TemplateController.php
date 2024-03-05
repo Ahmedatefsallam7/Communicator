@@ -16,9 +16,9 @@ class TemplateController extends Controller
 
     public function index(Request $request)
     {
+
         // Search
         $templates = $this->searchTemplateQueryAction->execute($request)->with('creator');
-
         // Response
         $data = DataTables::of($templates)->with('creator')
             ->addColumn('created_at', function ($template) {
@@ -26,6 +26,7 @@ class TemplateController extends Controller
             })
             ->make(true)->original;
 
+        // return
         return $this->successResponse(null, $data);
     }
 

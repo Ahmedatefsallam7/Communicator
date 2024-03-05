@@ -33,6 +33,6 @@ class Template extends Model
 
     function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class, 'template_id');
     }
 }

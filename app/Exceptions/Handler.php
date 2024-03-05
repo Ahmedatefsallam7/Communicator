@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +29,27 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            return new JsonResponse([
+                'status' => true,
+                'message' => " Data not found in {$this->prettyModelNotFound($e)} ",
+                'data' => null
+            ], 404);
+        }
+
+        return parent::render($request, $e);
+    }
+
+    private function prettyModelNotFound(ModelNotFoundException $exception): string
+    {
+        if (!is_null($exception->getModel())) {
+            return Str::lower(ltrim(preg_replace('/[A-Z]/', ' $0', class_basename($exception->getModel()))));
+        }
+
+        return 'resource';
     }
 }

@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Modules\Communicator\App\Http\Requests\StoreMessageRequest;
-use Modules\Communicator\App\Http\Requests\UpdateMessageRequest;
 use Modules\Communicator\App\Http\Controllers\Actions\Messages\StoreMessageAction;
-use Modules\Communicator\App\Http\Controllers\Actions\Messages\UpdateMessageAction;
 use Modules\Communicator\App\Http\Controllers\Actions\Messages\SearchMessageQueryAction;
 
 class MessageController extends Controller
@@ -16,11 +14,9 @@ class MessageController extends Controller
     function __construct(
         private SearchMessageQueryAction $searchMessageQueryAction,
         private StoreMessageAction $storeMessageAction,
-        private UpdateMessageAction $updateMessageAction,
     ) {
         $this->searchMessageQueryAction = $searchMessageQueryAction;
         $this->storeMessageAction = $storeMessageAction;
-        $this->updateMessageAction = $updateMessageAction;
     }
 
     public function index(Request $request)
@@ -35,6 +31,7 @@ class MessageController extends Controller
             })
             ->make(true)->original;
 
+        // return
         return $this->successResponse(null, $data);
     }
 
@@ -46,8 +43,12 @@ class MessageController extends Controller
         // Store
         $message = $this->storeMessageAction->execute($data);
 
-        // Response
-        return $this->successResponse(__('main.record_has_been_created_successfully'), $message);
+        if ($message) {
+            // success Response
+            return $this->successResponse(__('main.record_has_been_created_successfully'), $message);
+        }
+        // error Response
+        return $this->errorResponse(__('Something went wrong'));
     }
 
 
@@ -56,16 +57,8 @@ class MessageController extends Controller
     }
 
 
-    public function update(UpdateMessageRequest $request, $id)
+    public function update()
     {
-        // Data Setup
-        $data = $this->unsetNullValues($request->all());
-
-        // Update
-        $message = $this->updateMessageAction->execute($data);
-
-        // Response
-        return $this->successResponse(__('main.record_has_been_updated_successfully'),  $message);
     }
 
 

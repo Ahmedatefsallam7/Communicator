@@ -28,6 +28,11 @@ class Message extends Model
         'status',
     ];
 
+    protected $casts = [
+        'template_id' => 'int',
+        'user_id' => 'int',
+    ];
+
     function template()
     {
         return $this->belongsTo(Template::class, 'template_id');
