@@ -2,11 +2,11 @@
 
 namespace Modules\Communicator\App\Emails;
 
-use App\Traits\GeneralTrait;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Modules\Communicator\App\Traits\GeneralTrait;
 
 class UserMail extends Mailable implements ShouldQueue
 {

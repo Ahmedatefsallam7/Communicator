@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Modules\Communicator\App\Traits;
 
 use Illuminate\Support\Facades\Mail;
 use Modules\Communicator\App\Emails\UserMail;

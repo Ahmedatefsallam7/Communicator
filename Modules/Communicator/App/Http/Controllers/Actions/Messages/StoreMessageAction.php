@@ -3,9 +3,9 @@
 namespace Modules\Communicator\App\Http\Controllers\Actions\Messages;
 
 use Illuminate\Support\Str;
-use App\Traits\GeneralTrait;
 use Illuminate\Support\Facades\DB;
 use Modules\Communicator\App\Models\Message;
+use Modules\Communicator\App\Traits\GeneralTrait;
 use Modules\Communicator\App\resources\MessageResource;
 
 class StoreMessageAction
