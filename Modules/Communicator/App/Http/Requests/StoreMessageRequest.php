@@ -17,7 +17,7 @@ class StoreMessageRequest extends FormRequest
             'user_id' => 'required|integer|exists:users,id',
             'app' => 'required|string|unique:messages,app',
             'message_data' => 'required',
-            'status' => 'nullable|string|in:sent,,draft,failed,successful',
+            'status' => 'nullable|string|in:sent,draft,failed,successful',
         ];
     }
 

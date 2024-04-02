@@ -4,11 +4,10 @@ namespace Modules\Communicator\App\resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MessageResource extends JsonResource
-{
-    public function toArray($request): array
-    {
+class MessageResource extends JsonResource {
+    public function toArray( $request ): array {
         return [
+            'id'=>$this->id,
             'app' => $this->app,
             'message_data' => $this->message_data,
             'status' => $this->status,

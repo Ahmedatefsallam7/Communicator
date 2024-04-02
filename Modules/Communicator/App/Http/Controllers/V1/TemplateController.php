@@ -16,7 +16,6 @@ class TemplateController extends Controller
 
     public function index(Request $request)
     {
-
         // Search
         $templates = $this->searchTemplateQueryAction->execute($request)->with('creator');
         // Response

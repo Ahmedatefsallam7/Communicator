@@ -1,37 +1,28 @@
 <x-mail::message>
     Welcome: {{ $user }}
-    <br>
-    <br>
-    subject from template : {{ $subject }}
-    <br>
-    <br>
-    body from template : {{ $bodyText }}
-    <br>
-    <br>
+    <br><br>
+    Subject from Template: {{ $subject }}
+    <br><br>
+    Body from Template: {{ $bodyText }}
+    <br><br>
     <x-mail::button :url="$var_url">
-        {{ $subject }}
+        Click here
     </x-mail::button>
+    <br><br>
+    Variables:
     <br>
+    - Name: {{ $var_name }}
     <br>
-    var name: {{ $var_name }}
+    - Subject: {{ $var_subject }}
     <br>
+    - Body: {{ $var_body }}
     <br>
-    var subject: {{ $var_subject }}
-    <br>
-    <br>
-    var body: {{ $var_body }}
-    <br>
-    <br>
-    var_url: {{ $var_url }}
-    <br>
-    <br>
+    - URL: {{ $var_url }}
+    <br><br>
     App: {{ $app }}
-    <br>
-    <br>
-    msg data: {{ $msg_data }}
-    <br>
-    <br>
-
+    <br><br>
+    Message Data: {{ $msg_data }}
+    <br><br>
     Thanks,<br>
     {{ config('app.name') }}
 </x-mail::message>

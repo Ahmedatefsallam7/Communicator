@@ -26,16 +26,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Add UserStamps
         Schema::table('messages', function (Blueprint $table) {
-            $table->bigInteger('created_by')->unsigned()->nullable()->index()->after('created_at');
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->bigInteger('updated_by')->unsigned()->nullable()->index()->after('updated_at');
-            $table->foreign('updated_by')->references('id')->on('users');
-            $table->bigInteger('deleted_by')->unsigned()->nullable()->index()->after('deleted_at');
-            $table->foreign('deleted_by')->references('id')->on('users');
+            $table->foreignId('created_by')->nullable()->constrained('users')->after('created_at');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->after('updated_at');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->after('deleted_at');
         });
     }
+
 
     /**
      * Reverse the migrations.
