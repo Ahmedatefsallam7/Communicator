@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "e6a0e239-0764-4ed0-a9a8-b18b58854d55",
+		"name": "Communicator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24047453"
+	},
+	"item": [
+		{
+			"name": "template",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/templates/v1/templates"
+					},
+					"response": [
+						{
+							"name": "index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/api/templates/v1/templates"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:14:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:14:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": null,\n    \"data\": {\n        \"draw\": 0,\n        \"recordsTotal\": 6,\n        \"recordsFiltered\": 6,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"{&quot;en&quot;:&quot;welcome_email&quot;,&quot;ar&quot;:&quot;\\\\u0625\\\\u0645\\\\u064a\\\\u0644 \\\\u062a\\\\u0631\\\\u062d\\\\u064a\\\\u0628&quot;}\",\n                \"type\": \"email\",\n                \"subject\": \"{&quot;en&quot;:&quot;Welcome to Our Community!&quot;,&quot;ar&quot;:&quot;\\\\u0645\\\\u0631\\\\u062d\\\\u0628\\\\u064b\\\\u0627 \\\\u0628\\\\u0643 \\\\u0641\\\\u064a \\\\u0645\\\\u062c\\\\u062a\\\\u0645\\\\u0639\\\\u0646\\\\u0627!&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;Welcome to our community! We&#039;re excited to have you on board...&quot;,&quot;ar&quot;:&quot;\\\\u0645\\\\u0631\\\\u062d\\\\u0628\\\\u064b\\\\u0627 \\\\u0628\\\\u0643 \\\\u0641\\\\u064a \\\\u0645\\\\u062c\\\\u062a\\\\u0645\\\\u0639\\\\u0646\\\\u0627! \\\\u0646\\\\u062d\\\\u0646 \\\\u0645\\\\u062a\\\\u062d\\\\u0645\\\\u0633\\\\u0648\\\\u0646 \\\\u0644\\\\u0627\\\\u0646\\\\u0636\\\\u0645\\\\u0627\\\\u0645\\\\u0643 \\\\u0625\\\\u0644\\\\u064a\\\\u0646\\\\u0627...&quot;}\",\n                \"attachment\": null,\n                \"path\": \"welcome_email\",\n                \"variables\": \"{&quot;en&quot;:[&quot;this name&quot;,&quot;this subject&quot;,&quot;this body&quot;,&quot;this url&quot;],&quot;ar&quot;:[&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0645\\\\u0648\\\\u0636\\\\u0648\\\\u0639&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0646\\\\u0635&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637&quot;],&quot;url&quot;:&quot;https:\\\\/\\\\/example.com&quot;}\",\n                \"cc\": \"ahmedatefsallam7@gmail.com\",\n                \"bcc\": \"ahmedatefsallam7@gmail.com\",\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": \"2024-04-02T08:10:48.000000Z\",\n                \"updated_by\": null,\n                \"creator\": null\n            },\n            {\n                \"id\": 2,\n                \"name\": \"{&quot;en&quot;:&quot;password_reset&quot;,&quot;ar&quot;:&quot;\\\\u062a\\\\u063a\\\\u064a\\\\u0631 \\\\u0643\\\\u0644\\\\u0645\\\\u0647 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631&quot;}\",\n                \"type\": \"email\",\n                \"subject\": \"{&quot;en&quot;:&quot;Reset Your Password&quot;,&quot;ar&quot;:&quot;\\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u0643&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;You have requested a password reset for your account.\\\\nClick the link below to reset your password:\\\\n[reset_url]&quot;,&quot;ar&quot;:&quot;\\\\u0644\\\\u0642\\\\u062f \\\\u0637\\\\u0644\\\\u0628\\\\u062a \\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u062d\\\\u0633\\\\u0627\\\\u0628\\\\u0643.\\\\n\\\\u0627\\\\u0646\\\\u0642\\\\u0631 \\\\u0639\\\\u0644\\\\u0649 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637 \\\\u0623\\\\u062f\\\\u0646\\\\u0627\\\\u0647 \\\\u0644\\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u0643:\\\\n[reset_url]&quot;}\",\n                \"attachment\": null,\n                \"path\": \"password_reset\",\n                \"variables\": \"{&quot;en&quot;:[&quot;this name&quot;,&quot;this subject&quot;,&quot;this body&quot;,&quot;this url&quot;],&quot;ar&quot;:[&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0645\\\\u0648\\\\u0636\\\\u0648\\\\u0639&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0646\\\\u0635&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637&quot;],&quot;url&quot;:&quot;https:\\\\/\\\\/example.com&quot;}\",\n                \"cc\": \"ahmedatefsallam7@gmail.com\",\n                \"bcc\": \"ahmedatefsallam7@gmail.com\",\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": \"2024-04-02T08:10:48.000000Z\",\n                \"updated_by\": null,\n                \"creator\": null\n            },\n            {\n                \"id\": 3,\n                \"name\": \"{&quot;en&quot;:&quot;order_confirmation&quot;,&quot;ar&quot;:&quot;\\\\u062a\\\\u0623\\\\u0643\\\\u064a\\\\u062f \\\\u0627\\\\u0644\\\\u0637\\\\u0644\\\\u0628&quot;}\",\n                \"type\": \"email\",\n                \"subject\": \"{&quot;en&quot;:&quot;Your Order Confirmation&quot;,&quot;ar&quot;:&quot;\\\\u062a\\\\u0623\\\\u0643\\\\u064a\\\\u062f \\\\u0637\\\\u0644\\\\u0628\\\\u0643&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;Thank you for your order! Your order details are below:\\\\n...\\\\n...\\\\nSincerely,\\\\nThe [Your Company Name] Team&quot;,&quot;ar&quot;:&quot;\\\\u0634\\\\u0643\\\\u0631\\\\u064b\\\\u0627 \\\\u0644\\\\u0637\\\\u0644\\\\u0628\\\\u0643! \\\\u062a\\\\u0641\\\\u0627\\\\u0635\\\\u064a\\\\u0644 \\\\u0637\\\\u0644\\\\u0628\\\\u0643 \\\\u0623\\\\u062f\\\\u0646\\\\u0627\\\\u0647:\\\\n...\\\\n...\\\\n\\\\u0628\\\\u0635\\\\u062f\\\\u0642\\\\u060c\\\\n\\\\u0641\\\\u0631\\\\u064a\\\\u0642 [\\\\u0627\\\\u0633\\\\u0645 \\\\u0634\\\\u0631\\\\u0643\\\\u062a\\\\u0643]&quot;}\",\n                \"attachment\": null,\n                \"path\": \"order_confirmation\",\n                \"variables\": \"{&quot;en&quot;:[&quot;this name&quot;,&quot;this subject&quot;,&quot;this body&quot;,&quot;this url&quot;],&quot;ar&quot;:[&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0645\\\\u0648\\\\u0636\\\\u0648\\\\u0639&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0646\\\\u0635&quot;,&quot;\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637&quot;],&quot;url&quot;:&quot;https:\\\\/\\\\/example.com&quot;}\",\n                \"cc\": \"ahmedatefsallam7@gmail.com\",\n                \"bcc\": \"ahmedatefsallam7@gmail.com\",\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": \"2024-04-02T08:10:48.000000Z\",\n                \"updated_by\": null,\n                \"creator\": null\n            },\n            {\n                \"id\": 4,\n                \"name\": \"{&quot;en&quot;:&quot;sms1&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u0627\\\\u0648\\\\u0644\\\\u064a&quot;}\",\n                \"type\": \"sms\",\n                \"subject\": \"{&quot;en&quot;:&quot;SMS1&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u0627\\\\u0648\\\\u0644\\\\u064a&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;SMS1&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u0627\\\\u0648\\\\u0644\\\\u064a&quot;}\",\n                \"attachment\": null,\n                \"path\": null,\n                \"variables\": \"{&quot;en&quot;:[&quot;name&quot;],&quot;ar&quot;:[&quot;\\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;]}\",\n                \"cc\": null,\n                \"bcc\": null,\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": null,\n                \"updated_by\": null,\n                \"creator\": null\n            },\n            {\n                \"id\": 5,\n                \"name\": \"{&quot;en&quot;:&quot;sms2&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0646\\\\u064a\\\\u0647&quot;}\",\n                \"type\": \"sms\",\n                \"subject\": \"{&quot;en&quot;:&quot;SMS2&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0646\\\\u064a\\\\u0647&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;SMS2&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0646\\\\u064a\\\\u0647&quot;}\",\n                \"attachment\": null,\n                \"path\": null,\n                \"variables\": \"{&quot;en&quot;:[&quot;name&quot;],&quot;ar&quot;:[&quot;\\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;]}\",\n                \"cc\": null,\n                \"bcc\": null,\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": null,\n                \"updated_by\": null,\n                \"creator\": null\n            },\n            {\n                \"id\": 6,\n                \"name\": \"{&quot;en&quot;:&quot;sms3&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0644\\\\u062b\\\\u0647&quot;}\",\n                \"type\": \"sms\",\n                \"subject\": \"{&quot;en&quot;:&quot;SMS3&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0644\\\\u062b\\\\u0647&quot;}\",\n                \"body_text\": \"{&quot;en&quot;:&quot;SMS3&quot;,&quot;ar&quot;:&quot;\\\\u0627\\\\u0644\\\\u0631\\\\u0633\\\\u0627\\\\u0644\\\\u0647 \\\\u0627\\\\u0644\\\\u062b\\\\u0627\\\\u0644\\\\u062b\\\\u0647&quot;}\",\n                \"attachment\": null,\n                \"path\": null,\n                \"variables\": \"{&quot;en&quot;:[&quot;name&quot;],&quot;ar&quot;:[&quot;\\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645&quot;]}\",\n                \"cc\": null,\n                \"bcc\": null,\n                \"deleted_at\": null,\n                \"deleted_by\": null,\n                \"created_at\": \"Apr 2, 2024 | 08:10 AM\",\n                \"created_by\": null,\n                \"updated_at\": null,\n                \"updated_by\": null,\n                \"creator\": null\n            }\n        ],\n        \"creator\": \"\",\n        \"disableOrdering\": false,\n        \"queries\": [\n            {\n                \"query\": \"select count(*) as aggregate from `templates` where `templates`.`deleted_at` is null\",\n                \"bindings\": [],\n                \"time\": 27.28\n            },\n            {\n                \"query\": \"select * from `templates` where `templates`.`deleted_at` is null\",\n                \"bindings\": [],\n                \"time\": 0.75\n            }\n        ],\n        \"input\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "message",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/messages/v1/messages"
+					},
+					"response": [
+						{
+							"name": "index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/api/messages/v1/messages"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:11:24 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:11:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": null,\n    \"data\": {\n        \"draw\": 0,\n        \"recordsTotal\": 0,\n        \"recordsFiltered\": 0,\n        \"data\": [],\n        \"creator\": \"\",\n        \"disableOrdering\": false,\n        \"queries\": [\n            {\n                \"query\": \"select count(*) as aggregate from `messages` where `messages`.`deleted_at` is null\",\n                \"bindings\": [],\n                \"time\": 43.82\n            },\n            {\n                \"query\": \"select * from `messages` where `messages`.`deleted_at` is null\",\n                \"bindings\": [],\n                \"time\": 1.6\n            }\n        ],\n        \"input\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "send",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "template_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "app",
+									"value": "this my app2",
+									"contentType": "",
+									"type": "text"
+								},
+								{
+									"key": "message_data",
+									"value": "{\"en\":\"Hello\",\"ar\":\"ممممم\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{url}}/api/messages/v1/messages"
+					},
+					"response": [
+						{
+							"name": "send",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "template_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "app",
+											"value": "this my app2",
+											"contentType": "",
+											"type": "text"
+										},
+										{
+											"key": "message_data",
+											"value": "{\"en\":\"Hello\",\"ar\":\"ممممم\"}",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{url}}/api/messages/v1/messages"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:17:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Apr 2024 08:17:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"main.record_has_been_created_successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"app\": \"this-my-app2\",\n        \"message_data\": \"{\\\"en\\\":\\\"Hello\\\",\\\"ar\\\":\\\"ممممم\\\"}\",\n        \"status\": \"sent\",\n        \"template_id\": 2,\n        \"user_id\": 1,\n        \"template\": {\n            \"id\": 2,\n            \"name\": \"{\\\"en\\\":\\\"password_reset\\\",\\\"ar\\\":\\\"\\\\u062a\\\\u063a\\\\u064a\\\\u0631 \\\\u0643\\\\u0644\\\\u0645\\\\u0647 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631\\\"}\",\n            \"type\": \"email\",\n            \"subject\": \"{\\\"en\\\":\\\"Reset Your Password\\\",\\\"ar\\\":\\\"\\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u0643\\\"}\",\n            \"body_text\": \"{\\\"en\\\":\\\"You have requested a password reset for your account.\\\\nClick the link below to reset your password:\\\\n[reset_url]\\\",\\\"ar\\\":\\\"\\\\u0644\\\\u0642\\\\u062f \\\\u0637\\\\u0644\\\\u0628\\\\u062a \\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u062d\\\\u0633\\\\u0627\\\\u0628\\\\u0643.\\\\n\\\\u0627\\\\u0646\\\\u0642\\\\u0631 \\\\u0639\\\\u0644\\\\u0649 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637 \\\\u0623\\\\u062f\\\\u0646\\\\u0627\\\\u0647 \\\\u0644\\\\u0625\\\\u0639\\\\u0627\\\\u062f\\\\u0629 \\\\u062a\\\\u0639\\\\u064a\\\\u064a\\\\u0646 \\\\u0643\\\\u0644\\\\u0645\\\\u0629 \\\\u0627\\\\u0644\\\\u0645\\\\u0631\\\\u0648\\\\u0631 \\\\u0627\\\\u0644\\\\u062e\\\\u0627\\\\u0635\\\\u0629 \\\\u0628\\\\u0643:\\\\n[reset_url]\\\"}\",\n            \"attachment\": null,\n            \"path\": \"password_reset\",\n            \"variables\": \"{\\\"en\\\":[\\\"this name\\\",\\\"this subject\\\",\\\"this body\\\",\\\"this url\\\"],\\\"ar\\\":[\\\"\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0627\\\\u0633\\\\u0645\\\",\\\"\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0645\\\\u0648\\\\u0636\\\\u0648\\\\u0639\\\",\\\"\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0646\\\\u0635\\\",\\\"\\\\u0647\\\\u0630\\\\u0627 \\\\u0627\\\\u0644\\\\u0631\\\\u0627\\\\u0628\\\\u0637\\\"],\\\"url\\\":\\\"https:\\\\/\\\\/example.com\\\"}\",\n            \"cc\": \"ahmedatefsallam7@gmail.com\",\n            \"bcc\": \"ahmedatefsallam7@gmail.com\",\n            \"deleted_at\": null,\n            \"deleted_by\": null,\n            \"created_at\": \"2024-04-02T08:10:48.000000Z\",\n            \"created_by\": null,\n            \"updated_at\": \"2024-04-02T08:10:48.000000Z\",\n            \"updated_by\": null\n        },\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Ahmed Atef\",\n            \"email\": \"ahmedatefsallam7@gmail.com\",\n            \"phone\": \"01026556692\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-03-05T10:07:07.000000Z\",\n            \"updated_at\": \"2024-03-05T10:07:07.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
